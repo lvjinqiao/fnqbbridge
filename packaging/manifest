@@ -1,0 +1,12 @@
+appname = fnqbbridge
+version = 0.2.7
+display_name = 飞牛下载桥接
+desc = 为 MoviePilot 提供飞牛原生下载器的 qBittorrent API，x86_64 测试版。
+platform = x86
+source = thirdparty
+maintainer = Personal Build
+distributor = Personal Build
+desktop_uidir = ui
+desktop_applaunchname = fnqbbridge.Application
+os_min_version = 1.2.0401
+micro_app = true

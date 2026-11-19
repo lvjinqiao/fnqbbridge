@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eu
+[ "${wizard_keep_data:-keep}" != "keep" ] || exit 0
+[ "${wizard_keep_data:-}" = "remove" ] || exit 0
+[ -n "${TRIM_PKGVAR:-}" ] && [ "$TRIM_PKGVAR" != / ] || exit 1
+[ -f "${TRIM_PKGVAR}/.fnqbbridge-owned" ] && [ ! -L "${TRIM_PKGVAR}/.fnqbbridge-owned" ] || exit 0
+# Deliberate whitelist: never recursively remove paths from application configuration.
+for file in config.json config.json.tmp bridge.log bridge.log.tmp bridge.log.1 bridge.log.2 bridge.log.3 app.pid; do
+ rm -f -- "${TRIM_PKGVAR}/$file"
+done
+rm -f -- "${TRIM_PKGVAR}/.fnqbbridge-owned"

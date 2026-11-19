@@ -1,0 +1,12 @@
+*.fpk
+.DS_Store
+/packaging/app/fnqbbridge
+/packaging/app/native-map
+/web/trim-sdk.js
+/node_modules/
+/.build/
+/config.json
+*.log
+*.db
+*.db-shm
+*.db-wal

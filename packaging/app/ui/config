@@ -1,0 +1,14 @@
+{
+  ".url": {
+    "fnqbbridge.Application": {
+      "title": "飞牛下载桥接",
+      "icon": "images/icon_{0}.png",
+      "type": "iframe",
+      "protocol": "",
+      "gatewayPrefix": "/app/fnqbbridge",
+      "gatewaySocket": "app.sock",
+      "url": "/app/fnqbbridge/",
+      "allUsers": false
+    }
+  }
+}

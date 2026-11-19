@@ -1,0 +1,28 @@
+#!/bin/bash
+set -eu
+PID_FILE="${TRIM_PKGVAR}/app.pid"
+BIN="${TRIM_APPDEST}/fnqbbridge"
+status() {
+ [ -r "$PID_FILE" ] || return 1
+ read -r pid < "$PID_FILE"
+ [[ "$pid" =~ ^[0-9]+$ ]] || return 1
+ [ "$(readlink "/proc/$pid/exe")" = "$(readlink -f "$BIN")" ] && kill -0 "$pid" 2>/dev/null
+}
+case "${1:-}" in
+ start)
+ status && exit 0
+ umask 077
+ touch "${TRIM_PKGVAR}/.fnqbbridge-owned"
+ "$BIN" "${TRIM_PKGVAR}/config.json" > /dev/null 2>&1 &
+ echo $! > "$PID_FILE"
+ sleep 1
+ status
+ ;;
+ stop)
+ if status; then kill "$pid"; for i in {1..10}; do status || break; sleep 1; done; fi
+ if status; then exit 1; fi
+ rm -f "$PID_FILE"
+ ;;
+ status) if status; then exit 0; else exit 3; fi ;;
+ *) exit 1 ;;
+esac

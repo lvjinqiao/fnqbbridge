@@ -1,0 +1,1 @@
+[{"stepTitle":"卸载飞牛下载桥接","items":[{"type":"select","field":"wizard_keep_data","label":"是否保留桥接自身配置与日志","initValue":"remove","options":[{"label":"清理桥接配置与日志","value":"remove"},{"label":"保留，方便重新安装","value":"keep"}]},{"type":"tips","helpText":"只处理本应用自有文件，不删除原生下载任务、下载文件、MoviePilot 配置或媒体库。"}]}]

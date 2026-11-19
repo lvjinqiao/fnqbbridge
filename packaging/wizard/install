@@ -1,0 +1,26 @@
+[
+  {
+    "stepTitle": "设置桥接密码",
+    "items": [
+      {
+        "type": "password",
+        "field": "wizard_bridge_password",
+        "label": "桥接密码（12 至 64 位字母或数字）",
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入桥接密码"
+          },
+          {
+            "pattern": "^[A-Za-z0-9]{12,64}$",
+            "message": "请输入12至64位字母或数字"
+          }
+        ]
+      },
+      {
+        "type": "tips",
+        "helpText": "MoviePilot 选择 qBittorrent，地址 http://飞牛IP:7777，用户名 admin。需先打开飞牛原生下载器。本包需 root 读取下载器进程和本地套接字；适用于 x86_64，需真机验证。"
+      }
+    ]
+  }
+]

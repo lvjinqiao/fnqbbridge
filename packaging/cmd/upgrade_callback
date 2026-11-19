@@ -1,0 +1,5 @@
+#!/bin/bash
+set -eu
+# Mark ownership only; never replace the existing password, port or preferences.
+umask 077
+touch "${TRIM_PKGVAR}/.fnqbbridge-owned"
